@@ -65,14 +65,14 @@ INSERT INTO class_attendance (class_attendance_id, schedule_id, member_id, atten
 (14, 8, 2, 'Attended'),
 (15, 9, 5, 'Attended');
 
-INSERT INTO payments (payment_id, member_id, amount, payment_date, payment_method) VALUES 
-(1, 1, 40.00, '2024-11-01 10:00:00', 'Monthly membership fee'),
-(2, 2, 60.00, '2024-11-15 12:00:00', 'Monthly membership fee'),
-(3, 3, 40.00, '2024-12-20 09:00:00', 'Monthly membership fee'),
-(4, 5, 60.00, '2024-12-10 14:00:00', 'Monthly membership fee'),
-(5, 1, 40.00, '2025-01-01 10:00:00', 'Monthly membership fee'),
-(6, 2, 60.00, '2025-01-15 12:00:00', 'Monthly membership fee'),
-(7, 11, 20.00, '2025-01-20 15:30:00', 'Day pass');
+INSERT INTO payments (payment_id, member_id, amount, payment_date, payment_method, payment_type) VALUES 
+(1, 1, 40.00, '2024-11-01 10:00:00', 'Credit Card', 'Monthly membership fee'),
+(2, 2, 60.00, '2024-11-15 12:00:00', 'Bank Transfer', 'Monthly membership fee'),
+(3, 3, 40.00, '2024-12-20 09:00:00', 'Credit Card', 'Monthly membership fee'),
+(4, 5, 60.00, '2024-12-10 14:00:00', 'PayPal', 'Monthly membership fee'),
+(5, 1, 40.00, '2025-01-01 10:00:00', 'Credit Card', 'Monthly membership fee'),
+(6, 2, 60.00, '2025-01-15 12:00:00', 'Bank Transfer', 'Monthly membership fee'),
+(7, 11, 20.00, '2025-01-20 15:30:00', 'Cash', 'Day pass');
 
 INSERT INTO personal_training_sessions (session_id, member_id, staff_id, session_date, start_time, end_time, notes) VALUES 
 (1, 1, 2, '2025-01-25', '09:00:00', '10:00:00', 'Cardio focus'),

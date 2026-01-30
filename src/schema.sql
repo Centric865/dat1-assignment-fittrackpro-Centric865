@@ -115,7 +115,8 @@ CREATE TABLE payments (
     member_id INTEGER,
     amount REAL,
     payment_date DATE,
-    payment_method VARCHAR CHECK(payment_method IN('Monthly membership fee', 'Day pass', 'Cash')),
+    payment_method VARCHAR CHECK(payment_method IN ('Credit Card', 'Bank Transfer', 'PayPal', 'Cash')),
+    payment_type VARCHAR CHECK(payment_type IN ('Monthly membership fee', 'Day pass')),
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
