@@ -17,8 +17,10 @@ WHERE DATE(cs.start_time) = '2025-02-01'
 GROUP BY c.class_id, c.name, cs.start_time, cs.end_time, c.capacity;
 
 -- 4.3 
-
-
+INSERT INTO class_attendance (schedule_id, member_id)
+SELECT schedule_id, 11
+FROM class_schedule
+WHERE class_id = 1 AND start_time LIKE '2025-02-01%';
 -- 4.4 
 
 
