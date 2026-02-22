@@ -22,10 +22,22 @@ SELECT schedule_id, 11
 FROM class_schedule
 WHERE class_id = 1 AND start_time LIKE '2025-02-01%';
 -- 4.4 
-
+DELETE FROM class_attendance
+WHERE member_id = 3 AND schedule_id = 7;
 
 -- 4.5 
-
+SELECT c.class_id, c.name AS class_name, COUNT(ca.member_id) AS registration_count
+FROM classes c
+INNER JOIN class_schedule cs ON c.class_id = cs.class_id
+INNER JOIN class_attendance ca ON cs.schedule_id = ca.schedule_id
+GROUP BY c.class_id, c.name
+ORDER BY registration_count DESC
+LIMIT 1;
 
 -- 4.6 
-
+SELECT AVG(myCount) AS avg_number_of_classes_per_member
+FROM (
+    SELECT COUNT(schedule_id) AS myCount
+    FROM class_attendance
+    GROUP BY member_id
+);
