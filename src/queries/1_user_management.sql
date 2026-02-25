@@ -18,10 +18,7 @@ SELECT COUNT(*) AS total_members
 FROM Members;
 
 -- 1.4
-SELECT 
-    m.member_id,
-    m.first_name,
-    m.last_name,
+SELECT m.member_id, m.first_name,m.last_name,
     COUNT(*) AS registration_count
 FROM class_attendance ca
 JOIN members m
@@ -31,17 +28,14 @@ ORDER BY registration_count DESC
 LIMIT 1; 
 -- 1.5
 
-SELECT 
-    m.member_id,
-    m.first_name,
-    m.last_name,
-    COUNT(*) AS registration_count
+SELECT m.member_id,m.first_name,m.last_name,COUNT(*) AS registration_count
 FROM class_attendance ca
 JOIN members m
     ON ca.member_id = m.member_id
 GROUP BY m.member_id
 ORDER BY registration_count ASC
 LIMIT 1;
+
 
 -- 1.6
 SELECT COUNT(*) AS member_count
