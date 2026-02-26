@@ -32,6 +32,7 @@ SELECT m.member_id,m.first_name,m.last_name,COUNT(*) AS registration_count
 FROM class_attendance ca
 JOIN members m
     ON ca.member_id = m.member_id
+WHERE ca.attendance_status = 'Registered'
 GROUP BY m.member_id
 ORDER BY registration_count ASC
 LIMIT 1;
@@ -42,6 +43,7 @@ SELECT COUNT(*) AS member_count
 FROM    (
     SELECT member_id
     FROM class_attendance
+    WHERE attendance_status = 'Registered'
     GROUP BY member_id
     HAVING COUNT(*) >= 2
 );

@@ -35,9 +35,11 @@ ORDER BY registration_count DESC
 LIMIT 1;
 
 -- 4.6 
-SELECT AVG(myCount) AS avg_number_of_classes_per_member
+SELECT AVG(myCount) AS avg_classes_per_member
 FROM (
     SELECT COUNT(schedule_id) AS myCount
     FROM class_attendance
     GROUP BY member_id
 );
+
+
