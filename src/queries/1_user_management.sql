@@ -7,7 +7,7 @@ FROM members;
 
 -- 1.2
 UPDATE members
-SET phone_number = '07000 100005', email = 'emily.jones.updated@email.com'
+SET phone_number = '07000 100005', email = 'emily.jones.update@email.com'
 WHERE member_id = 5;
 
 SELECT email
@@ -18,11 +18,9 @@ SELECT COUNT(*) AS total_members
 FROM Members;
 
 -- 1.4
-SELECT m.member_id, m.first_name,m.last_name,
-    COUNT(*) AS registration_count
+SELECT m.member_id, m.first_name,m.last_name,COUNT(*) AS registration_count
 FROM class_attendance ca
-JOIN members m
-    ON ca.member_id = m.member_id
+JOIN members m ON ca.member_id = m.member_id
 GROUP BY m.member_id
 ORDER BY registration_count DESC
 LIMIT 1; 
@@ -30,8 +28,7 @@ LIMIT 1;
 
 SELECT m.member_id,m.first_name,m.last_name,COUNT(*) AS registration_count
 FROM class_attendance ca
-JOIN members m
-    ON ca.member_id = m.member_id
+JOIN members m  ON ca.member_id = m.member_id
 WHERE ca.attendance_status = 'Registered'
 GROUP BY m.member_id
 ORDER BY registration_count ASC
